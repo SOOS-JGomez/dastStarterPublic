@@ -3,8 +3,6 @@ name: "SOOS DAST Scan"
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   soos:
@@ -15,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run SOOS DAST Analysis
-        uses: soos-io/soos-dast-github-action@94854026b80f1643770fe194d4222d269a058c3c
+        uses: soos-io/soos-dast-github-action@a7eb40b94c1c81eb76b178ba1befdc21823f86fa
         with:
           image_tag: 'beta'
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
