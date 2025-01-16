@@ -19,10 +19,10 @@ jobs:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
-          project_name: "dast_test"
+          project_name: "dast_gha_test01"
           target_url: "https://www.example.com/"
           export_format: "sarif"
-          export_file_type: "json"
+          #export_file_type: "json"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
