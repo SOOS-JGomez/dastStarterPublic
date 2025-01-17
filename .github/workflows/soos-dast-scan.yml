@@ -27,7 +27,11 @@ jobs:
         with:
           name: 'reports'
           path: '*'
+      - uses: nearform-actions/github-action-copy-files@v1
+        with:
+          source: './*.sarif.json'
+          destination: './sarifResults'
       - name: Upload SOOS DAST SARIF Report
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: './'
+          sarif_file: './sarifResults'
