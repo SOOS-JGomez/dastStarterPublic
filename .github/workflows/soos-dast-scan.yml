@@ -21,8 +21,8 @@ jobs:
           api_url: "https://qa-api.soos.io/api/"
           project_name: "dast_gha_test"
           target_url: "https://www.example.com/"
-          export_format: "SoosLicenses"
-          export_file_type: "CSV"
+          export_format: "sarif"
+          export_file_type: "json"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
