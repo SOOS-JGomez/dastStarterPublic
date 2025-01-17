@@ -22,8 +22,7 @@ jobs:
           project_name: "dast_gha_test"
           target_url: "https://www.example.com/"
           export_format: "sarif"
-          export_file_type: "json"
-          output_format: "another"
+          export_file_type: "xml"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
