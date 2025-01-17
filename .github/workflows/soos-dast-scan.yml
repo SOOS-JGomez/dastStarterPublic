@@ -27,10 +27,8 @@ jobs:
         with:
           name: 'reports'
           path: '*'
-      - uses: nearform-actions/github-action-copy-files@v9.2
-        with:
-          source: './*.sarif.json'
-          destination: './sarifResults'
+      - name: Rename file 
+        run: mv *.sarif.json sarif.results
       - name: Upload SOOS DAST SARIF Report
         uses: github/codeql-action/upload-sarif@v3
         with:
