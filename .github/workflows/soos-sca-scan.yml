@@ -20,7 +20,7 @@ jobs:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
-          project_name: "sca_gha_test"
+          project_name: "sca_gha_test_scan"
           export_format: "sarif"
           export_file_type: "json"
       - uses: actions/upload-artifact@v4
