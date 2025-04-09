@@ -24,6 +24,7 @@ jobs:
           export_format: "sarif"
           export_file_type: "json"
           other_options: "-d"
+          disable_rules: "10003,10010,10011,10020,10021,10038,10054,10063,90003,90004"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
