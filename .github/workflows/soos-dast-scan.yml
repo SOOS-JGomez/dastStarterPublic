@@ -23,6 +23,7 @@ jobs:
           target_url: "https://www.example.com/"
           export_format: "sarif"
           export_file_type: "json"
+          other_options: "-d"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
