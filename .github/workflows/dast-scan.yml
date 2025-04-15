@@ -9,20 +9,31 @@ jobs:
     permissions:
       security-events: write # for uploading code scanning alert info
       actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
-    name: SOOS CSA Analysis
+    name: SOOS Analysis
     runs-on: ubuntu-latest
     steps:
-      - name: Run SOOS CSA Analysis
-        uses: soos-io/soos-csa-github-action@v1
+      - name: Run SOOS SCA Analysis
+        uses: soos-io/soos-sca-github-action@v2
         with:
-          image_tag: 'beta'
+          sca_version: '4.1.4-pre.1'
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
-          project_name: "csa_gha_test"
-          target_image: "ericallard/elasticsearch:x86"
+          project_name: "sca_gha_test"
           export_format: "sarif"
           export_file_type: "json"
+    #steps:
+    #  - name: Run SOOS CSA Analysis
+    #    uses: soos-io/soos-csa-github-action@v1
+    #    with:
+    #      image_tag: 'beta'
+    #      client_id: ${{ secrets.SOOS_CLIENT_ID }}
+    #      api_key: ${{ secrets.SOOS_API_KEY }}
+    #      api_url: "https://qa-api.soos.io/api/"
+    #      project_name: "csa_gha_test"
+    #      target_image: "ericallard/elasticsearch:x86"
+    #      export_format: "sarif"
+    #      export_file_type: "json"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
