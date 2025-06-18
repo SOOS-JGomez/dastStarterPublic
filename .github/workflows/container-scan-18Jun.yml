@@ -24,18 +24,30 @@ jobs:
     #      package_managers: 'python'
     #      export_format: "sarif"
     #      export_file_type: "json"
+    #steps:
+    #  - name: Run SOOS CSA Analysis
+    #    uses: soos-io/soos-csa-github-action@v1
+    #    with:
+    #      image_tag: 'alpha'
+    #      client_id: ${{ secrets.SOOS_CLIENT_ID }}
+    #      api_key: ${{ secrets.SOOS_API_KEY }}
+    #      api_url: "https://qa-api.soos.io/api/"
+    #      project_name: "csa_gha_test"
+    #      target_image: "ericallard/elasticsearch:x86"
+    #      export_format: "sarif"
+    #      export_file_type: "json"
     steps:
-      - name: Run SOOS CSA Analysis
-        uses: soos-io/soos-csa-github-action@v1
+      - name: Run SOOS DAST Analysis
+        uses: soos-io/soos-dast-github-action@v2
         with:
-          image_tag: 'alpha'
-          client_id: ${{ secrets.SOOS_CLIENT_ID }}
-          api_key: ${{ secrets.SOOS_API_KEY }}
-          api_url: "https://qa-api.soos.io/api/"
-          project_name: "csa_gha_test"
-          target_image: "ericallard/elasticsearch:x86"
-          export_format: "sarif"
-          export_file_type: "json"
+           image_tag: 'alpha'
+           client_id: ${{ secrets.SOOS_CLIENT_ID }}
+           api_key: ${{ secrets.SOOS_API_KEY }}
+           project_name: "github_dastScan"
+           api_url: "https://qa-api.soos.io/api/"
+           target_url: "https://www.example.com/"
+           other_options: "-d"
+           #disable_rules: "10015,10020,10021,10035,10038,10049,10063,90004"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
