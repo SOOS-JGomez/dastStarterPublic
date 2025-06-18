@@ -47,7 +47,9 @@ jobs:
            api_url: "https://qa-api.soos.io/api/"
            target_url: "https://www.example.com/"
            other_options: "-d"
-           #disable_rules: "10015,10020,10021,10035,10038,10049,10063,90004"
+           disable_rules: "10015,10020,10021,10035,10038,10049,10063,90004"
+           export_format: "sarif"
+           export_file_type: "json"
       - uses: actions/upload-artifact@v4
         with:
           name: 'reports'
