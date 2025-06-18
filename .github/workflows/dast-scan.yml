@@ -21,6 +21,7 @@ jobs:
           api_key: ${{ secrets.SOOS_API_KEY }}
           api_url: "https://qa-api.soos.io/api/"
           project_name: "sca_gha_test"
+          package_managers: 'nuget'
           export_format: "sarif"
           export_file_type: "json"
     #steps:
